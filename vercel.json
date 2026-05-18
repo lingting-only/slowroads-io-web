@@ -1,8 +1,15 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ],
   "routes": [
-    { "src": "/_app/(.*)", "dest": "/_app/$1" }
+    { "src": "/app/(.*)", "dest": "/app/$1" },
+    { "src": "/fonts/(.*)", "dest": "/fonts/$1" },
+    { "src": "/img/(.*)", "dest": "/img/$1" },
+    { "src": ".*\\.(js|css|svg|png|jpg|ico|json)", "dest": "/$0" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/app/(.*).js",
+      "headers": [{"key": "Content-Type", "value": "application/javascript"}]
+    }
   ]
 }
