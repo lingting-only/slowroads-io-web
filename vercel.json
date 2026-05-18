@@ -1,8 +1,17 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ],
   "routes": [
-    { "src": "/_app/(.*)", "dest": "/_app/$1" }
+    // 1. 优先放行 _app、fonts、img 等静态资源，不走SPA重写
+    { "src": "/_app/(.*)", "dest": "/_app/$1" },
+    { "src": "/fonts/(.*)", "dest": "/fonts/$1" },
+    { "src": "/img/(.*)", "dest": "/img/$1" },
+    // 2. 剩下的路由才走SPA重定向
+    { "src": "/(.*)", "dest": "/index.html" }
+  ],
+  "headers": [
+    // JS文件强制正确MIME类型
+    {
+      "source": "/_app/(.*).js",
+      "headers": [{"key": "Content-Type", "value": "application/javascript"}]
+    }
   ]
 }
