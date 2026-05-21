@@ -1,14 +1,14 @@
 {
-    "short_name": "Slow Roads",
-    "name": "Slow Roads",
-    "description": "Endless driving zen",
+    "short_name": "慢路",
+    "name": "慢路",
+    "description": "无尽驾驶禅",
     "icons": [
       {
         "src": "icon.svg",
         "sizes": "any"
       }
     ],
-    "id": "2.1.1",
+    "id": "2.4.1",
     "start_url": ".",
     "display": "standalone",
     "theme_color": "#343c3e",
